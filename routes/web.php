@@ -11,5 +11,12 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-Route::get('/bio', 'BioController@show');
+Route::get('/', function(){
+	$user = new App\Models\User();
+	$user->name 	= 'Rizka Yuni Hapsari';
+	$user->username = 'Rizka';
+	$user->email	= 'hapsaririzka@gmail.com';
+	$user->password	= bcrypt('password');
+	$user->save();
+});
+//Route::get('/bio', 'BioController@show');

@@ -15,8 +15,12 @@ class CreateBlacklistcommentsTable extends Migration
     {
         Schema::create('blacklistcomments', function (Blueprint $table) {
             $table->increments('id');
-			$table->integer('user_id');
-			$table->text('keywords');
+            $table->unsignedInteger('user_id');
+            $table->text('keywords');
+            $table->timestamps();
+
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
