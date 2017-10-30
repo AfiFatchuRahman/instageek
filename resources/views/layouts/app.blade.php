@@ -62,7 +62,7 @@
             </form>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Upload</span></a>
+                    <a class="nav-link" href="{{ route('post.create') }}">Upload</span></a>
                 </li>
                 <li class="nav-item dropdown active">
                     <a href="#" class="dropdown-toggle nav-link" id="dropdown01" data-toggle="dropdown" role="button" aria-expanded="false">

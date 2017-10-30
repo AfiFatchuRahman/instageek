@@ -1,6 +1,65 @@
 @extends('layouts.app')
 
 @section('content')
+
+<main role="main">
+  <div class="container container-margin">
+    <div class="row">
+      <div class="col-md-8 offset-2 album">
+        <div class="mx-auto pt-3 pb-2" style="width: 200px;">
+          <center><h3>Share Fotomu</h3></center>
+        </div>
+        <form method="POST" enctype="multipart/form-data" action="{{ route('post.store') }}">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  <label>Upload Foto</label>
+                </td>
+                <td>
+                  :
+                </td>
+                <td colspan="2">
+                  <label class="custom-file">
+                    <input type="file" id="file2" class="custom-file-input">
+                    <span class="custom-file-control"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Upload Foto</label>
+                </td>
+                <td>
+                  :
+                </td>
+                <td colspan="2">
+                  <div class="form-group">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                 
+                </td>
+                <td>
+                  
+                </td>
+                <td colspan="2">
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-outline-success float-xl-right">Upload</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+<!--
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -53,4 +112,5 @@
         </div>
     </div>
 </div>
+-->
 @endsection
