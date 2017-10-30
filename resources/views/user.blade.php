@@ -19,12 +19,13 @@
               </div>
             </div>
             @else
-                @if($user->following->contains($user))
+                @if(Auth::user()->following->contains($user))
                 <div class="d-inline-flex profile-name pb-2 pt-4 mt-2">
                     <h2>{{ $user->username}}</h2>
                   <div class="d-inline-flex px-3">
                     <form action="{{ route('unfollow') }}" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="user_id" value="{{ $user_id }}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="following_id" value="{{ $user->id }}">
                         <button type="submit" class="btn btn-outline-success" onclick="showResults();">unfollow</button>
                     </form>
                   </div>
@@ -34,7 +35,8 @@
                     <h2>{{ $user->username}}</h2>
                   <div class="d-inline-flex px-3">
                     <form action="{{ route('follow') }}" method="POST" enctype="multipart/form-data" >
-                        <input type="hidden" name="user_id" value="{{ $user_id }}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="following_id" value="{{ $user->id }}">
                         <button type="submit" class="btn btn-outline-success" onclick="showResults();">follow</button>
                     </form>
                   </div>
