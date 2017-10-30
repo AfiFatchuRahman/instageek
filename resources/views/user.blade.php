@@ -15,28 +15,30 @@
             <div class="d-inline-flex profile-name pb-2 pt-4 mt-2">
                 <h2>{{ $user->username}}</h2>
               <div class="d-inline-flex px-3">
-                <button type="submit" class="btn btn-outline-success">follow</button>
+                <button type="submit" class="btn btn-outline-success">setting</button>
               </div>
             </div>
             @else
                 @if(Auth::user()->following->contains($user))
                 <div class="d-inline-flex profile-name pb-2 pt-4 mt-2">
-                    <h2>{{ $user->username}}</h2>
+                    <h2>{{ $user->username}} sdasd</h2>
                   <div class="d-inline-flex px-3">
                     <form action="{{ route('unfollow') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="hidden" name="following_id" value="{{ $user->id }}">
+                        <input type="hidden" name="follower_id" value="{{ Auth::user()->id }}">
                         <button type="submit" class="btn btn-outline-success" onclick="showResults();">unfollow</button>
                     </form>
                   </div>
                 </div>
                 @else
                 <div class="d-inline-flex profile-name pb-2 pt-4 mt-2">
-                    <h2>{{ $user->username}}</h2>
+                    <h2>{{ $user->username}}asdsad</h2>
                   <div class="d-inline-flex px-3">
                     <form action="{{ route('follow') }}" method="POST" enctype="multipart/form-data" >
                         {{ csrf_field() }}
                         <input type="hidden" name="following_id" value="{{ $user->id }}">
+                        <input type="hidden" name="follower_id" value="{{ Auth::user()->id }}">
                         <button type="submit" class="btn btn-outline-success" onclick="showResults();">follow</button>
                     </form>
                   </div>
