@@ -7,12 +7,16 @@
         @foreach($posts as $post) 
         <div class="row row-margin">
           <div class="col-md-66 offset-3 album">  
-            <div class="col-md-12 post-user">
+            <div class="col-md-12 post-user" style="border-bottom: 1px solid #ced4da;">
               <a href="{{ url('/' . $post->user->username) }}"><img class="rounded-circle" src="{{ asset('images/kamil.jpg') }}" alt="Generic placeholder image" width="30px" height="30px"></a>
               <a href="{{ url('/' . $post->user->username) }}" class="name-link">{{ $post->user->username }}</a>
             </div>    
-            <a href="{{ url('/p/' . $post->id) }}"><img src="{{ $post->photo }}" class="img-upload"></a>          
-            <div class="post-icon">
+            <div class="img-upload">
+                <a href="{{ url('/p/' . $post->id) }}">
+                    <img src="{{ asset('storage/'.$post->photo) }}" width="225%">
+                </a>   
+            </div>       
+            <div class="post-icon" style="border-top: 1px solid #ced4da;">
                 <div class="d-inline-block col-md-33 mr-1">
                     @if($post->like->contains(Auth::user()))
                     <form method="POST" action="{{ route('dislike') }}" enctype="multipart/form-data">  

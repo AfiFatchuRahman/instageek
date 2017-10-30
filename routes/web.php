@@ -17,11 +17,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/post/create', 'UploadController@index')->name('post.create');
+Route::get('/post/create', 'PostController@index')->name('post.create');
 
-Route::post('post', 'UploadController@store')->name('post.store');
+Route::post('post', 'PostController@store')->name('post.store');
 
-Route::get('/p/{post_id}', 'PostController@show')->name('post');
+Route::get('/post/{post_id}', 'PostController@show')->name('post');
 
 Route::post('comment', 'CommentController@store')->name('comment');
 

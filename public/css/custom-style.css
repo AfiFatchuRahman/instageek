@@ -115,8 +115,18 @@ body {
 	display: inline-block;
 }
 
+.post-border{	
+  	border-top: 1px solid #ced4da;
+  	border-bottom: 1px solid #ced4da;
+}
+
 .img-upload{
-	width: 100%;
+	display: table-cell;
+	width: 225%;
+	height: 520px;
+	vertical-align: middle;
+	padding-left: 	auto;	
+	padding-top: 	auto;
 }
 
 .album {

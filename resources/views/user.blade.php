@@ -62,7 +62,7 @@
                 @foreach($user->posts as $post)
                     <div class="d-inline-block col-md-3-5 album" style="width: 100%; height: 280px;">
                         <div class="fix-img">
-                            <a href="{{ route('post', ['id' => $post->id]) }}"><img src="../images/kamil.jpg" width="100%"></a>
+                            <a href="{{ route('post', ['id' => $post->id]) }}"><img src="{{ asset('storage/'.$post->photo) }}" width="100%"></a>
                         </div>
                     </div>
                 @endforeach

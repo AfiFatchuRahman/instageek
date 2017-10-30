@@ -9,7 +9,7 @@
             @foreach($posts as $post)  
             <div class="d-inline-block col-md-3-5 album" style="width: 100%; height: 280px;">
                 <a href="{{ url('/p/' . $post->id) }}">
-                    <img src="{{ $post->photo }}" width="100%">
+                    <img src="{{ asset('storage/'.$post->photo) }}" width="100%">
                 </a>
             </div>
             @endforeach

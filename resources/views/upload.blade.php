@@ -9,7 +9,9 @@
         <div class="mx-auto pt-3 pb-2" style="width: 200px;">
           <center><h3>Share Fotomu</h3></center>
         </div>
-        <form method="POST" enctype="multipart/form-data" action="{{ route('post.store') }}">
+        <form method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
           <table class="table">
             <tbody>
               <tr>
@@ -21,7 +23,7 @@
                 </td>
                 <td colspan="2">
                   <label class="custom-file">
-                    <input type="file" id="file2" class="custom-file-input">
+                    <input type="file" id="file2" class="custom-file-input" name="photo" value="{{ old('photo') }}">
                     <span class="custom-file-control"></span>
                   </label>
                 </td>
@@ -35,7 +37,7 @@
                 </td>
                 <td colspan="2">
                   <div class="form-group">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="caption" value="{{ old('caption') }}"></textarea>
                   </div>
                 </td>
               </tr>
@@ -70,7 +72,6 @@
                     <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ url('upload') }}">
                         {{ csrf_field() }}
 
-                        <input type="hidden" name="user_id" value="{{ $user->id }}">
                         <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
                             <label for="photo" class="col-md-4 control-label">Picture</label>
 

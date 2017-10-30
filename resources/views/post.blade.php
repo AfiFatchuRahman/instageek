@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-md-66 offset-1 album">
             <div class="fix-images">
-              <img src="{{ $post->photo }}" width="100%">
+              <img src="{{ asset('storage/'.$post->photo) }}" width="100%">
             </div>
           </div>
           <div class="post-details album post-attribute">
