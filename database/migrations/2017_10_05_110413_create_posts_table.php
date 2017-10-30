@@ -17,8 +17,8 @@ class CreatePostsTable extends Migration
             $table->increments('id');
 			$table->unsignedInteger('user_id');
 			$table->string('photo');
-			$table->text('caption');
-			$table->string('location');
+			$table->text('caption')->nullable();
+			$table->string('location')->nullable();
 			$table->unsignedInteger('like_count')->default(0);
 			$table->unsignedInteger('comment_count')->default(0);
             $table->timestamps();

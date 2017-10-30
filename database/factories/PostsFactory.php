@@ -3,7 +3,7 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Models\Post::class, function (Faker $faker) {
-    $filepath = storage_path('postimages');
+    $filepath = public_path('postimages');
 
     $randomId = App\Models\User::pluck('id');
 
@@ -13,7 +13,7 @@ $factory->define(App\Models\Post::class, function (Faker $faker) {
 
     return [
     	'user_id' => $randomId->random(),
-        'photo' => $faker->image($filepath, 400, 300),
+        'photo' => $faker->image($filepath, $width = 640, $height = 480, 'cats', false),
         'caption' => $faker->text($maxNbChars = 200),
         'location' => $faker->streetName,
     ];

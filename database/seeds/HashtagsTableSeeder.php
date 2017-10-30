@@ -11,6 +11,6 @@ class HashtagsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Hashtag::class, 15)->create();
+        factory(App\Models\Hashtag::class, 6)->create();
     }
 }

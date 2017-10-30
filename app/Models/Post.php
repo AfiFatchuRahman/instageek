@@ -6,17 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function comments()
+
+	protected $guarded = [
+		'_token', 'location',
+	];
+
+	protected $fillable = [
+		'user_id', 'photo', 'caption',
+	];
+
+    public function comment()
 	{
 		return $this->hasMany(Comment::class);
 	}
 	
-	public function likes()
+	public function like()
 	{
-		return $this->belongsToMany(User::class);
+		return $this->belongsToMany(User::class, 'likes', 'post_id', 'user_id');
 	}
 	
-	public function tags()
+	public function tag()
 	{
 		return $this->belongsToMany(User::class);
 	}
@@ -26,7 +35,7 @@ class Post extends Model
 		return $this->belongsTo(User::class);
 	}
 
-	public function reports()
+	public function report()
 	{
 		return $this->belongsTo(PostReport::class);
 	}

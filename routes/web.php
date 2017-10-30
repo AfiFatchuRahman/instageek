@@ -11,12 +11,26 @@
 |
 */
 
-Route::get('/', function(){
-	$user = new App\Models\User();
-	$user->name 	= 'Rizka Yuni Hapsari';
-	$user->username = 'Rizka';
-	$user->email	= 'hapsaririzka@gmail.com';
-	$user->password	= bcrypt('password');
-	$user->save();
-});
-//Route::get('/bio', 'BioController@show');
+Route::get('/', 'DefaultController@index')->name('default');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/post/create', 'UploadController@index')->name('upload');
+
+Route::get('/p/{post_id}', 'PostController@show')->name('post');
+
+Route::post('comment', 'CommentController@store')->name('comment');
+
+Route::post('like', 'LikeController@store')->name('like');
+
+Route::post('dislike', 'LikeController@destroy')->name('dislike');
+
+Route::post('follow', 'FollowController@store')->name('follow');
+
+Route::post('unfollow', 'FollowController@destroy')->name('unfollow');
+
+Route::post('upload', 'UploadController@store');
+
+Route::get('/{username}', 'UserController@show')->name('profile');

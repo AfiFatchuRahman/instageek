@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    protected $guarded = [
+        '_token',
+    ];
+
     public function post()
     {
     	return $this->belongsTo(Post::class);

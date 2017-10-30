@@ -30,7 +30,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'website' => $faker->url,
         'phone' => $faker->phoneNumber,
         'sex' => $faker->randomElement(['M','F','O']),
-        'profile_picture' => $faker->image($filepath, 400, 300),
+        'profile_picture' => $faker->image($filepath, $width = 640, $height = 480, 'cats', false),
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
