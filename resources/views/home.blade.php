@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="like-count">
-                  <h6><a href="" class="details-link"><strong>4 likes</strong></a></h6>
+                  <h6><a href="" class="details-link"><strong>{{ $post->like_count }} likes</strong></a></h6>
                 </div>
                 <div class="caption">
                   <h6><a href="{{ url('/' . $post->user->username) }}" class="details-link"><strong>{{ $post->user->username }}</strong></a>{{ ' ' . $post->caption }}</h6>
@@ -60,7 +60,7 @@
                     @endforeach
                 </div>
                 <div class="time">
-                  <h6><a href="{{ url('/p/' . $post->id) }}" class="details-link">{{ $post->created_at }}</a></h6>
+                  <h6><a href="{{ url('/post/' . $post->id) }}" class="details-link">{{ $post->created_at }}</a></h6>
                 </div>
                 <div class="clear-border-post"> </div>
                 <div class="post-margin"> 

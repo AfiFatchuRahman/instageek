@@ -93,10 +93,10 @@
                 -->
             </div>
             <div class="details-likes">
-              <h6><a href="" class="details-link"><strong>4 likes</strong></a></h6>
+              <h6><a href="" class="details-link"><strong>{{ $post->like_count }} likes</strong></a></h6>
             </div>            
             <div class="time-post">
-              <h6><a href="{{ url('/p/' . $post->id) }}" class="details-link">{{ $post->created_at }}</a></h6>
+              <h6><a href="{{ url('/post/' . $post->id) }}" class="details-link">{{ $post->created_at }}</a></h6>
             </div>
             <div class="clear-border"> </div>
             <form method="POST" action="{{ route('comment') }}" enctype="multipart/form-data">  

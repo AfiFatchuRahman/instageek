@@ -13,6 +13,9 @@ class LikeController extends Controller
         $post = Post::findOrFail($request->post_id);
         $post->like()->attach(Auth::user()->id);
 
+        $post->like_count = $post->like_count + 1;
+        $post->save();
+
     	return redirect()->back();
     }
 
@@ -20,6 +23,9 @@ class LikeController extends Controller
     {
         $post = Post::findOrFail($request->post_id);
         $post->like()->detach(Auth::user()->id);
+
+        $post->like_count = $post->like_count - 1;
+        $post->save();
 
     	return redirect()->back();
     }
