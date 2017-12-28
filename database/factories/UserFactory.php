@@ -13,13 +13,26 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Models\User::class, function (Faker $faker) {
     static $password;
+
+    $filepath = public_path('avatars');
+
+    if(!File::exists($filepath)){
+        File::makeDirectory($filepath);
+    }
 
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
+        'username' => $faker->unique()->userName,
+        'bio' => $faker->text($maxNbChars = 200),
+        'website' => $faker->url,
+        'phone' => $faker->phoneNumber,
+        'sex' => $faker->randomElement(['M','F','O']),
+        'profile_picture' => $faker->image($filepath, $width = 640, $height = 480, 'cats', false),
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
 });
+

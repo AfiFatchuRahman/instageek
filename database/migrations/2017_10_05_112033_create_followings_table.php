@@ -14,10 +14,13 @@ class CreateFollowingsTable extends Migration
     public function up()
     {
         Schema::create('followings', function (Blueprint $table) {
-            $table->increments('id');
-			$table->integer('user_id');		
-			$table->integer('following_id');
+            $table->unsignedInteger('user_id');		
+			$table->unsignedInteger('following_id');
             $table->timestamps();
+			
+			$table->primary(['user_id','following_id']);
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('following_id')->references('id')->on('users');
         });
     }
 

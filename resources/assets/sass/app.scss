@@ -7,3 +7,14 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+$background-color = red;
+
+body {
+	padding: 4;
+	margin: 4;
+}
+
+header {
+	backgrond-color: $background-color;
+}
